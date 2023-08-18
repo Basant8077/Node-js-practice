@@ -22,5 +22,6 @@ To deploy this project run
 
 ```bash
   npm run start
+  nodemon <file name>
 ```
 
