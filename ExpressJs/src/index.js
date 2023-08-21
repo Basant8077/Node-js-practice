@@ -1,13 +1,15 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const hbs = require('hbs');
 const PORT = 5000;
 
 //! serving dynamic site through express
 
 const link  = path.join(__dirname,"../public");
-const viewpath = path.join(__dirname,"./template")
-
+const viewpath = path.join(__dirname,"./template/views")
+const headerpath = path.join(__dirname,'../src/template/partials')
+console.log(headerpath);
 
 
 app.use(express.static(link)) //* to serve static site in public folder
@@ -17,6 +19,9 @@ app.set("view engine","hbs"); //handlebars express engine for dunamic data from 
 //? CHANGING views folder name 
 app.set('views',viewpath);
 
+//* Adding partials similar to components
+hbs.registerPartials(headerpath);
+
 app.get('/',(req,res)=>{
     //render method is use to render the file rather than passing static string in app.send mathod 
     res.render('index',{
@@ -25,6 +30,8 @@ app.get('/',(req,res)=>{
     })
 })
 //! NOTE :-  In Express if above / come first then it will render first rather then same / afterword
+
+
 
 //routing
 app.get('/',(req,res)=>{
