@@ -13,8 +13,10 @@ console.log(headerpath);
 
 
 app.use(express.static(link)) //* to serve static site in public folder
+//app.use method is used to mount the specified middleware function(s) at the path which is being specified. ==> app.use(path, callback) where callback is any middleware function 
 
-app.set("view engine","hbs"); //handlebars express engine for dunamic data from backend 
+app.set("view engine","hbs"); //handlebars express engine for dunamic data from backend
+//app.set(name,value) function assigns or sets a setting name to value. This can store any type of value as the user wants, but there are some certain names that can be used to configure the behaviour of the server
 
 //? CHANGING views folder name 
 app.set('views',viewpath);
