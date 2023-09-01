@@ -15,6 +15,8 @@ connectToDatabase();
 app.use(express.json());
 // app.use(express.static(viewPath))
 
+//used to take input from the form
+app.use(express.urlencoded({extended:false}))
 //view engine
 app.set("view engine","hbs");
 
